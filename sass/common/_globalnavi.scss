@@ -1,0 +1,351 @@
+@use "../_setting" as s;
+
+.globalNavi {
+	display:none;
+	@include s.media(m){
+		display:block;
+		width:70%;
+	}
+	@include s.media(xxl){
+		width:65%;
+	}
+}
+
+// .globalNaviSmall　グローバルナビ ハンバーガーメニュー
+.globalNaviSmall {
+	&__icon {
+		width: 3em;
+		height: 3em;
+		position: absolute;
+		top:0;
+		right:0;
+	}
+	&__iconButton{
+		width: 3em;
+		height: 3em;
+		cursor:pointer;
+		float: right;
+		display: block;
+		background: s.$colorType02;
+		position: relative;
+		margin:0.5em 0.5em 0.5em 0.5em;
+	  	border-radius: 50%;
+		z-index:999;
+	}
+	&__icon span {
+	    width: 1.2em;
+	    height: 1px;
+	    display: block;
+	    background: #FFF;
+	    position: absolute;
+	    left: 50%;
+	    top: 50%;
+	    margin-left: -22%; 
+	}
+}
+	
+
+.globalNaviSmall{
+	&__icon--type01{
+		// ハンバーガーメニュー 押す前
+		span {
+		  -webkit-transition: all 0.3s;
+		          transition: all 0.3s;
+		  -webkit-transform: rotate(0deg);
+		      -ms-transform: rotate(0deg);
+		          transform: rotate(0deg); 
+		}
+		.iconButton--top {
+		  -webkit-transform: translateY(-0.3em);
+		      -ms-transform: translateY(-0.3em);
+		          transform: translateY(-0.3em); 
+		}
+		.iconButton--bottom {
+		  -webkit-transform: translateY(0.3em);
+		      -ms-transform: translateY(0.3em);
+		          transform: translateY(0.3em); 
+    	}
+
+    	// ハンバーガーメニュー hover
+		&:hover {
+			.iconButton--top {
+			  -webkit-transform: translateY(-0.4em);
+			      -ms-transform: translateY(-0.4em);
+			          transform: translateY(-0.4em);
+			}
+			.iconButton--bottom {
+			  -webkit-transform: translateY(0.4em);
+			      -ms-transform: translateY(0.4em);
+			          transform: translateY(0.4em); 
+          	}
+    	}
+
+    	// ハンバーガーメニュー 押した後の動き
+		&.is-open {
+			.iconButton--middle {
+			  background: rgba(255, 255, 255, 0);
+			}
+			.iconButton--top {
+			  -webkit-transform: rotate(-45deg) translateY(0px);
+			      -ms-transform: rotate(-45deg) translateY(0px);
+			          transform: rotate(-45deg) translateY(0px); 
+			}
+			.iconButton--bottom {
+				  -webkit-transform: rotate(45deg) translateY(0px);
+				      -ms-transform: rotate(45deg) translateY(0px);
+				          transform: rotate(45deg) translateY(0px);
+			}
+    	}
+	}
+}
+
+
+
+/* .globalNaviSmall　スマホグローバルナビ
+------------------------------------------ */
+#wrapper .globalNaviSmall {
+	display:block;
+	width:100%;
+	position: fixed;
+	z-index:888;
+	top:0;
+	left:0;
+	@include s.media(m){
+		display: none;
+	}
+	&__siteTitle{
+		padding:0 15% 1em 15%;
+		margin:3em 0;
+		img{
+			width:100%;
+		}
+		p{
+			font-weight:bold;
+			text-align:center;
+			margin-top:0.5em;
+		}
+	}
+	&__menu{
+		width:100%;
+	  	max-height: 100vh;
+		display:block;
+		&__inner{
+			width:100%;
+		  	min-height: 100vh;
+			overflow-x:hidden;
+			overflow-y:auto;
+  			padding: 2em;
+			display:block;
+		}
+		&__main{
+			background:s.$colorType03;
+			border-radius:1em;
+			padding:2em;
+			margin-bottom:2em;
+			li {
+				border-bottom:#FFF dotted 1px;
+				display:block;
+				a{
+					padding:0.8rem 0;
+					display:block;
+					&:hover{
+						color:#999;
+					}
+					&:after{
+						content:"\03e";
+						float:right;
+						padding-right:1em;
+					}
+				}
+			}
+			>li:last-child {
+				border-bottom:none;
+			}
+		}
+		&__sub li{
+  			padding:0 0 0 1em;
+		}
+	}
+	&__entry{
+		a{
+			background: s.$colorType02;
+			padding:0.8em 0.5em;
+			display:block;
+			color:#FFF;
+			text-align:center;
+			font-weight:bold;
+			vertical-align:middle;
+			border-bottom:#666 solid 1px;
+			font-size:1.2em;
+			text-decoration:none;
+		    /*-webkit-transition: 1s;
+		    -moz-transition: 1s;
+		    -o-transition: 1s;
+		    -ms-transition: 1s;*/
+		    transition: 1s;
+		  	border-radius: 0.6em;
+			&:after {
+        content: "\f04b";
+      	font-family: 'icomoon';
+      	margin-left: 0.5em;
+      	display:inline;
+      }
+		}
+	}
+	.modal__overlay {
+		background: none;
+	}
+	.modal__container {
+		background:rgba(255,255,255,.95);
+		width:100%;
+		max-width: 100%;
+		border-radius: 0;
+  		padding: 0;
+		min-height: 100vh;
+	}
+}
+
+
+/* Safari */
+_:lang(x)+_:-webkit-full-screen-document, .globalNaviSmall__menu {
+  min-height: -webkit-fill-available;
+}
+_:lang(x)+_:-webkit-full-screen-document, .globalNaviSmall__menu__inner {
+  min-height: -webkit-fill-available;
+}
+
+//以下768px以上で適用される　レイアウトの指定-----------------------------------------------
+@include s.media(m){
+
+.globalNavi{
+	&__menu{
+		&__main{
+			display:flex;
+			justify-content:flex-end;
+			>li {
+				height: 4em;
+				padding:0 1em 0;
+				text-align:center;
+				display:block;
+			   	position: relative; /*z-indexの指定や子要素の基準とするために指定*/
+			   	z-index: 2; /*ドロップダウンしたメニューが隠れないように*/
+			}
+			li a {
+				text-decoration:none;
+				display:block;
+				font-size:0.9em;
+				&:hover {
+					text-decoration:none;
+				}
+			}
+		}
+	}
+	&__entry a{
+		margin-top:-1.3em;
+		border-radius:0.6em;
+		background:s.$colorType02;
+		display:block;
+		overflow: hidden;
+   	transition: ease .2s;
+		position: relative;
+    &:before {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: 0;
+			z-index: 1;
+			background:#000;
+			width: 100%;
+			height: 100%;
+			transition: transform .6s cubic-bezier(0.8, 0, 0.2, 1) 0s;
+			transform: scale(0, 1);
+			transform-origin: right top;
+		}
+		&:hover:before{
+			transform-origin:left top;
+			transform:scale(1, 1);
+		}
+		span{
+			color:#FFF;
+			padding:0.6em 2em;
+			font-weight:bold;
+			font-size:1.2em;
+			display:block;
+			position: relative;
+			z-index: 2;
+		}
+	}
+}
+
+/* When Active Page */
+body#■■ .globalNavi ul.globalNavi__menu__main>li:nth-child(1)>a {color:#EEE !important; pointer-events: none;}
+body#■■ .globalNavi ul.globalNavi__menu__main>li:nth-child(2)>a {color:#EEE !important; pointer-events: none;}
+body#■■ .globalNavi ul.globalNavi__menu__main>li:nth-child(3)>a {color:#EEE !important; pointer-events: none;}
+body#■■ .globalNavi ul.globalNavi__menu__main>li:nth-child(4)>a {color:#EEE !important; pointer-events: none;}
+body#■■ .globalNavi ul.globalNavi__menu__main>li:nth-child(5)>a {color:#EEE !important; pointer-events: none;}
+body#■■ .globalNavi ul.globalNavi__menu__main>li:nth-child(6)>a {color:#EEE !important; pointer-events: none;}
+
+
+// globalNavi__menu__sub
+.globalNavi {
+	ul{
+		li{
+			ul.globalNavi__menu__sub {
+				width:100%;
+			  	opacity: 0;  /*サブメニューは最初は非表示にしておく*/
+			  	visibility: hidden;  /*サブメニューは最初は非表示にしておく*/
+			  	position: absolute;  /*絶対配置にしておかないとうまくいかない*/
+			  	top: 3.7em;
+			  	left: 0;
+			  	border-top: 1px solid #EEE;  /*ボーダートップを指定*/
+			    -webkit-transition: all .2s ease;
+			    transition: all .2s ease;
+			    li{
+					height:auto;
+				  	float: none;  /*サブメニューはフロートさせないので解除*/
+				  	padding: 0;  /*親メニューのパディングを解除*/
+					margin:0;
+					*margin-top:-8px;
+					display:block;
+					line-height:1.5em;
+					a{
+					  	border: 1px solid #eee;  /*ボーダーの指定*/
+					  	border-top: none;  /*ボーダートップは重なって太くなるので解除。一番上は ul 要素に指定*/
+					  	padding: 0.8rem 0;
+					  	background-color: #FFF;
+						text-decoration:none;
+					  	color: #666;
+						text-align:center;
+						display:block;
+						font-size:0.9em;
+						&:hover{ 
+							color:#000;
+						  	background-color: #EEE;
+						}
+					}
+				}
+			}
+			&:hover ul.globalNavi__menu__sub {
+				width:100%;
+			  	top: 3.9em;
+			    visibility:visible;
+			    opacity: 1;
+			  	display: block;    /*マウスオーバー時にサブメニューを表示する*/
+			}
+		}
+	}
+}
+
+.globalNavi.globalNaviAccordion ul.globalNavi__menu__sub li{
+  	padding:0;
+}
+
+/* When Active Page */
+/*body#■■ .globalNavi ul.globalNavi__menu__main li:nth-child(■) ul.globalNavi__menu__sub li:nth-child(■) a { color:#000; background-color: #DDD; pointer-events: none; }*/
+
+} 
+// 768px以上で適用される　レイアウトの指定　ここまで
+
+@include s.media(xl){
+.globalNavi__menu__main li a span{ padding:0.8em 4em; }
+} 

@@ -1,0 +1,1625 @@
+@use "../_setting" as s;
+
+
+//メインYouTube動画用
+
+.overlay, #yt_player {
+    position: absolute;
+    top: 0;
+    left: 0;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+}
+ 
+.overlay{
+    z-index: -1;
+}
+ 
+#yt_player{
+    z-index: -2;
+}
+
+#wrapper .mainVisual .youtubeBox{
+	position: absolute;
+}
+
+
+//------------------------------------------
+
+
+#wrapper {
+	.mainVisual {
+		width:112%;
+		margin-left:-6%;
+		overflow:hidden;
+		display:block;
+		position:relative;
+		margin-bottom:2em;
+		@include s.media(m){
+			width:100%;
+			margin-left:0;
+			display:flex;
+			margin-bottom:5em;
+		}
+		@include s.media(xxl){
+			width:120%;
+			margin-left:-10%;
+		}
+		&__chach{
+			display:none;
+			@include s.media(m){
+				display:block;
+				z-index: -3;
+			}
+			img{
+				width:100%;
+			}
+		}
+		&__chachSp{
+			display:block;
+			z-index: -3;
+			@include s.media(m){
+				display:none;
+			}
+			img{
+				width:100%;
+
+				//opacity: 0;
+			}
+		}
+		&__inner{
+			width:100%;
+			height:100;
+			display:block;
+		}
+		&__chachCopy{
+			font-family: 'Noto Sans JP', sans-serif;
+			font-weight: 700;
+			font-size:2.5em;
+			letter-spacing:0.05em;
+			position:absolute;
+			top:0.7em;
+			left:0.7em;
+			color:#FFF;
+			line-height:1.3;
+			@include s.media(m){
+				font-size:3.5em;
+				position:absolute;
+				top:0.7em;
+				left:1em;
+			}
+			@include s.media(xl){
+				font-size:4em;
+			}
+			@include s.media(xxl){
+				font-size:5em;
+			}
+		}
+		&__newsBox {
+			display:block;
+			margin-top:2em;
+			@include s.media(m){
+				margin-top:0;
+				width:50%;
+				position:absolute;
+				bottom:0;
+				left:0;
+			}
+		}
+		&__newsBoxInner{
+			width:100%;
+			position:relative;
+			background:#FFF;
+			padding:2em 2.5em 0 2em;
+			@include s.media(m){
+				border-radius: 0 4em 0 0;
+				padding:2em 2.5em 0 2em;
+				display:flex;
+				justify-content:space-between;
+				align-items:center;
+			}
+			@include s.media(xxl){
+				padding:2em 2.5em 2em 2em;
+			}
+			&::before{
+				content:"";
+				width:4em;
+				height:4em;
+				display:block;
+				background:url(../img/common/imgRadius.svg) no-repeat center top;
+				background-size:100% auto;
+				position:absolute;
+				top:-6em;
+				left:0;
+				@include s.media(m){
+					position:absolute;
+					top:-4em;
+					left:0;
+				}
+			}
+			&::after{
+				content:"";
+				width:4em;
+				height:4em;
+				display:block;
+				background:url(../img/common/imgRadius.svg) no-repeat center top;
+				background-size:100% auto;
+				position:absolute;
+				bottom:0;
+				right:-4em;
+			}
+			dl{
+				display:block;
+				@include s.media(m){
+					width:78%;
+				}
+				@include s.media(l){
+					width:80%;
+				}
+				@include s.media(xxl){
+					width:85%;
+				}
+			}
+			dt{
+				color:s.$colorType02;
+				font-size:1.1em;
+				font-weight:bold;
+				padding-right:2em;
+				margin-bottom:1em;
+				@include s.media(m){
+					margin-bottom:0;
+				}
+			}
+			dd{
+				padding-right:2em;
+				span{
+					display:block;
+				}
+				a{
+					color:#999999;
+					&:hover{
+						color:#000;
+					}
+				}
+			}
+		}
+		&__newsButton{
+			width:8em;
+			display:block;
+			position:absolute;
+			top:1.7em;
+			right:2em;
+			@include s.media(m){
+				position:static;
+				width:22%;
+			}
+			@include s.media(l){
+				width:20%;
+			}
+			@include s.media(xxl){
+				width:15%;
+			}
+			a{
+				display:block;
+				background:s.$colorType02;
+				border-radius:0.5em;
+				text-align:center;
+				color:#FFF;
+				padding:0.6em 1em;
+				font-size:0.8em;
+				@include s.media(m){
+					padding:2em 1em;
+					border-radius:2em;
+				}
+				&:hover{
+					background:#000;
+				}
+				i{
+					margin-left:0.5em;
+					@include s.media(m){
+						margin-left:0;
+						margin-top:0.5em;
+					}
+				}
+			}
+		}
+		&__entryButton{
+			width:16em;
+			height:15em;
+			display:block;
+			position:absolute;
+			top:19em;
+			right:-3em;
+			@include s.media(m){
+				width:20em;
+				height:18em;
+				position:absolute;
+				top:auto;
+				bottom:-6em;
+				right:-1.5em;
+			}
+			@include s.media(l){
+				position:absolute;
+				bottom:-5em;
+				right:-1em;
+			}
+			@include s.media(xxl){
+				position:absolute;
+				bottom:-5em;
+				right:0;
+			}
+			a{
+				width:13em;
+				height:12em;
+				display:block;
+				background:url(../img/common/figure01.svg) no-repeat center top;
+				background-size:100% auto;
+				color:#FFF;
+				padding:3em 0 0 40%;
+				font-size:1.1em;
+				@include s.media(m){
+					width:13em;
+					height:12em;
+					font-size:1.6em;
+					padding:3em 0 0 50%;
+				}
+				@include s.media(l){
+					width:14em;
+					height:13em;
+					padding:3.5em 0 0 55%;
+				}
+				@include s.media(xxl){
+					width:15em;
+					height:12em;
+					padding:3.5em 0 0 60%;
+				}
+				&:hover{
+					color:#000;
+				}
+				i{
+					font-size:0.8em;
+				}
+			}
+		}
+	}
+}
+
+#wrapper .inBase.--typeMainVisual{
+	position:relative;
+	.mainVisual__entryButton{
+			position:absolute;
+			bottom:6em;
+			right:-3em;
+			@include s.media(m){
+				position:absolute;
+				top:auto;
+				bottom:-6em;
+				right:-1.5em;
+			}
+			@include s.media(l){
+				position:absolute;
+				bottom:-5em;
+				right:-1em;
+			}
+			@include s.media(xxl){
+				position:absolute;
+				bottom:-5em;
+				right:-6em;
+			}
+	}
+}
+
+#wrapper .homeAboutUs{
+	margin-bottom:3em;
+	@include s.media(m){
+		margin-bottom:0;
+	}
+	&__titleBox{
+		text-align:center;
+		display:block;
+		@include s.media(m){
+			text-align:left;
+		}
+	}
+	&__title{
+		display:inline-block;
+		position:relative;
+		padding-top:4em;
+		margin-bottom:1.5em;
+		@include s.media(m){
+			padding-top:6em;
+			margin-left:12em;
+			margin-bottom:3em;
+		}
+		&::before{
+			content:"";
+			width:6em;
+			height:6em;
+			display:block;
+			background:url(../img/common/imgTitleDeco.png) no-repeat center top;
+			background-size:100% auto;
+			position:absolute;
+			top:1em;
+			left:-5em;
+			@include s.media(m){
+				width:6em;
+				height:6em;
+				position:absolute;
+				top:3em;
+				left:-5em;
+			}
+		}
+		span{
+			font-family: 'Noto Sans JP', sans-serif;
+			font-weight: 700;
+			font-size:2em;
+			letter-spacing:0.15em;
+			@include s.media(m){
+				font-size:3em;
+			}
+			@include s.media(xl){
+				font-size:4em;
+			}
+		}
+		small{
+			//font-family: 'Fjalla One', sans-serif;
+			font-family: 'Noto Sans JP', sans-serif;
+			font-weight: 500;
+			font-size:0.9em;
+			color:s.$colorType02;
+			position:absolute;
+			top:2.7em;
+			left:50%;
+			margin-left:-3em;
+			@include s.media(m){
+				position:absolute;
+				top:5.3em;
+				left:3em;
+				margin-left:0;
+			}
+			@include s.media(xl){
+				font-size:1.1em;
+				position:absolute;
+				top:4.3em;
+				left:3em;
+			}
+		}
+	}
+	&__content{
+		display:block;
+		position:relative;
+		@include s.media(m){
+			width:25em;
+			margin-left:50%;
+		}
+		@include s.media(l){
+			width:32em;
+		}
+		&::before{
+			content:"";
+			width:6em;
+			height:6em;
+			display:block;
+			background:url(../img/common/figure02.svg) no-repeat center top;
+			background-size:100% auto;
+			position:absolute;
+			bottom:-6em;
+			right:-1em;
+			@include s.media(m){
+				display:block;
+				width:9em;
+				height:8em;
+				position:absolute;
+				bottom:-10em;
+				right:-7em;
+			}
+			@include s.media(xl){
+				width:10em;
+				height:9em;
+				position:absolute;
+				bottom:-8em;
+				right:-8em;
+			}
+		}
+		p{
+			line-height:2.4;
+		}
+	}
+	&__image{
+		display:block;
+		position:relative;
+		width:21em;
+		margin-left:-1.5em;
+		&::before{
+			content:"";
+			width:6em;
+			height:6em;
+			display:block;
+			background:url(../img/common/figure02.svg) no-repeat center top;
+			background-size:100% auto;
+			position:absolute;
+			bottom:-5em;
+			left:1em;
+			z-index:-1;
+			@include s.media(m){
+				display:block;
+				width:9em;
+				height:8em;
+				position:absolute;
+				bottom:auto;
+				top:-5em;
+				left:3em;
+				z-index:1;
+			}
+			@include s.media(xl){
+				width:10em;
+				height:9em;
+				position:absolute;
+				top:-5em;
+				left:3em;
+			}
+		}
+		@include s.media(m){
+			width:32em;
+			margin-left:-6em;
+			margin-top:-30em;
+		}
+		@include s.media(l){
+			width:32em;
+			margin-left:-6em;
+			margin-top:-25em;
+		}
+		@include s.media(xl){
+			margin-top:-28em;
+		}
+		img{
+			width:100%;
+		}
+		figure{
+			&:nth-child(1){
+				height:13em;
+				overflow:hidden;
+				border-radius: 0 2em 0 0;
+				@include s.media(m){
+					height:auto;
+				}
+				img{
+					margin-top:-5em;
+					@include s.media(m){
+						border-radius: 0 4em 0 0;
+						margin-top:0;
+					}
+				}
+			}
+			&:nth-child(2){
+				width:9em;
+				position:absolute;
+				bottom:-2em;
+				right:-6em;
+				display:block;
+				@include s.media(m){
+					width:11em;
+					position:absolute;
+					bottom:-4em;
+					right:-4em;
+				}
+				img{
+					border-radius:1em;
+					@include s.media(m){
+						border-radius:2em;
+					}
+				}
+			}
+		}
+	}
+}
+
+#wrapper .homeAboutJob{
+	position:relative;
+	display:block;
+	margin-bottom:8em;
+	@include s.media(m){
+		margin-bottom:5em;
+	}
+	&::before{
+		@include s.media(m){
+			content:"";
+			width:100%;
+			height:20em;
+			display:block;
+			background:s.$colorType03;
+			position:absolute;
+			bottom:-5em;
+			left:0;
+			z-index:0;
+		}
+	}
+	&::after{
+		content:"";
+		width:100%;
+		height:10em;
+		display:block;
+		background:#FFF;
+		position:absolute;
+		bottom:5em;
+		left:0;
+		border-radius: 0 0 0 5em;
+		z-index:1;
+		@include s.media(m){
+			border-radius: 0 0 0 10em;
+		}
+	}
+	.inBase{
+		z-index:2;
+		position:relative;
+	}
+	&__titleBox{
+		text-align:center;
+		display:block;
+		@include s.media(m){
+			text-align:left;
+		}
+	}
+	&__title{
+		display:inline-block;
+		position:relative;
+		padding-top:4em;
+		margin-bottom:1.5em;
+		@include s.media(m){
+			margin-left:40em;
+			margin-bottom:3em;
+		}
+		&::before{
+			content:"";
+			width:6em;
+			height:6em;
+			display:block;
+			background:url(../img/common/imgTitleDeco.png) no-repeat center top;
+			background-size:100% auto;
+			position:absolute;
+			top:1em;
+			left:-5em;
+			@include s.media(m){
+				width:6em;
+				height:6em;
+				position:absolute;
+				top:0.7em;
+				left:-5em;
+			}
+		}
+		span{
+			font-family: 'Noto Sans JP', sans-serif;
+			font-weight: 700;
+			font-size:2em;
+			letter-spacing:0.15em;
+			@include s.media(m){
+				font-size:3em;
+			}
+			@include s.media(xl){
+				font-size:4em;
+			}
+		}
+		small{
+			//font-family: 'Fjalla One', sans-serif;
+			font-family: 'Noto Sans JP', sans-serif;
+			font-weight: 500;
+			font-size:0.9em;
+			color:s.$colorType02;
+			position:absolute;
+			top:2.7em;
+			left:50%;
+			margin-left:-1.5em;
+			@include s.media(m){
+				position:absolute;
+				top:2.7em;
+				left:3em;
+				margin-left:0;
+			}
+			@include s.media(xl){
+				font-size:1.1em;
+				position:absolute;
+				top:2.3em;
+				left:3em;
+			}
+		}
+	}
+	&__content{
+		display:block;
+		position:relative;
+		@include s.media(m){
+			width:25em;
+			margin-left:3em;
+		}
+		@include s.media(l){
+			width:28em;
+			margin-left:0;
+		}
+		@include s.media(xl){
+			margin-left:3em;
+			width:32em;
+		}
+		&::before{
+			content:"";
+			width:6em;
+			height:6em;
+			display:block;
+			background:url(../img/common/figure02.svg) no-repeat center top;
+			background-size:100% auto;
+			position:absolute;
+			bottom:-8em;
+			left:-1em;
+			@include s.media(m){
+				display:block;
+				width:9em;
+				height:8em;
+				position:absolute;
+				bottom:auto;
+				top:-8em;
+				left:-7em;
+			}
+			@include s.media(xl){
+				width:10em;
+				height:9em;
+				position:absolute;
+				top:-8em;
+				left:-7em;
+			}
+		}
+		p{
+			line-height:2.4;
+		}
+	}
+	&__image{
+		display:block;
+		position:relative;
+		width:21em;
+		margin-left:6.2em;
+		@include s.media(m){
+			width:32em;
+			margin-left:55%;
+			margin-top:-25em;
+		}
+		@include s.media(xl){
+			margin-left:60%;
+		}
+		&::before{
+			content:"";
+			width:6em;
+			height:6em;
+			display:block;
+			background:url(../img/common/figure02.svg) no-repeat center top;
+			background-size:100% auto;
+			position:absolute;
+			bottom:-5em;
+			right:1em;
+			z-index:-1;
+			@include s.media(m){
+				display:block;
+				width:9em;
+				height:8em;
+				position:absolute;
+				right:auto;
+				bottom:7em;
+				left:-7em;
+				z-index:1;
+			}
+			@include s.media(xl){
+				width:10em;
+				height:9em;
+				position:absolute;
+				bottom:7em;
+				left:-7em;
+			}
+		}
+		img{
+			width:100%;
+		}
+		figure{
+			&:nth-child(1){
+				height:13em;
+				overflow:hidden;
+				border-radius: 2em 0 0 2em;
+				@include s.media(m){
+					height:auto;
+					border-radius:none;
+				}
+				img{
+					margin-top:-5em;
+					@include s.media(m){
+						border-radius: 4em 0 0 4em;
+						margin-top:0;
+					}
+				}
+			}
+			&:nth-child(2){
+				width:9em;
+				position:absolute;
+				bottom:-3em;
+				left:-6em;
+				display:block;
+				@include s.media(m){
+					width:11em;
+					position:absolute;
+					top:-6em;
+					right:4em;
+					bottom:auto;
+					left:auto;
+				}
+				img{
+					border-radius:1em;
+					@include s.media(m){
+						border-radius:2em;
+					}
+				}
+			}
+		}
+	}
+}
+
+
+#wrapper .homePointBox{
+	display:block;
+	background:s.$colorType03;
+	position:relative;
+	padding-top:4em;
+	padding-bottom:3em;
+	@include s.media(m){
+		padding-top:0;
+		padding-bottom:4em;
+	}
+	&::before{
+		content:"NAKAIKIKAIKOUGYOU RECRUTIT2024 NAKAIKIKAIKOUGYOU RECRUTIT2024";
+		width:61em;
+		height:1.7em;
+		margin-left:-30.5em;
+		text-align:center;
+		font-size:4em;
+		font-family: 'Noto Sans JP', sans-serif;
+		font-weight: 700;
+		color:#ffeae6;
+		display:none;
+		position:absolute;
+		top:1em;
+		left:50%;
+		z-index:0;
+		@include s.media(m){
+			display:block;
+		}
+	}
+	&::after{
+		content:"NAKAIKIKAIKOUGYOU RECRUTIT2024 NAKAIKIKAIKOUGYOU RECRUTIT2024";
+		width:61em;
+		height:1.7em;
+		margin-left:-30.5em;
+		text-align:center;
+		font-size:4em;
+		font-family: 'Noto Sans JP', sans-serif;
+		font-weight: 700;
+		color:#ffeae6;
+		display:none;
+		position:absolute;
+		bottom:2em;
+		left:50%;
+		z-index:0;
+		@include s.media(m){
+			display:block;
+		}
+	}
+	.inBase{
+		z-index:1;
+		position:relative;
+	}
+	&__head{
+		display:none;
+		@include s.media(m){
+			display:block;
+		}
+		figure{
+			width:7em;
+			margin:0 auto;
+			img{
+				width:100%;
+			}
+		}
+		h3{
+			width:10em;
+			min-height:12em;
+			color:#FFF;
+			text-align:center;
+			margin:0 auto;
+			display:block;
+			background:url(../img/home/bgFukidashi.svg) no-repeat center top;
+			background-size:100% auto;
+			margin-top:-0.5em;
+			padding-top:3em;
+			b{
+				font-size:2em;
+				font-weight:bold;
+			}
+			small{
+				display:block;
+				font-size:0.9em;
+			}
+		}
+	}
+	&__content{
+		display:block;
+		background:#FFF;
+		padding:2em;
+		border-radius: 2em;
+		@include s.media(xl){
+			width:90%;
+			margin-left:auto;
+			margin-right:auto;
+		}
+		figure{
+			width:50%;
+			float:right;
+			margin-bottom:1em;
+			@include s.media(m){
+				width:100%;
+				float:none;
+			}
+			img{
+				width:100%;
+			}
+		}
+		p{
+			clear:both;
+		}
+	}
+	&__contentTitle{
+		color:s.$colorType02;
+		display:block;
+		width:50%;
+		float:left;
+		line-height:1.2;
+		padding:1em 0 0 0.5em;
+		@include s.media(m){
+			display:none;
+		}
+			b{
+				font-size:2.4em;
+				font-weight:bold;
+			}
+			span{
+				font-weight:bold;
+				display:block;
+				font-size:1.4em;
+			}
+	}
+}
+
+#wrapper .homeMovieBox{
+	display:block;
+	position:relative;
+	margin-bottom:s.$spaceSize*3;
+	&::before{
+		content:"";
+		width:100%;
+		height:18em;
+		display:block;
+		background:s.$colorType03;
+		position:absolute;
+		top:0;
+		left:0;
+		z-index:0;
+		@include s.media(m){
+			height:35em;
+		}
+	}
+	&::after{
+		content:"";
+		width:100%;
+		height:20em;
+		display:block;
+		background:#FFF;
+		position:absolute;
+		top:0;
+		left:0;
+		border-radius: 0 5em 0 0;
+		z-index:1;
+		@include s.media(m){
+			height:25em;
+			border-radius: 0 10em 0 0;
+			position:absolute;
+			top:25em;
+			left:0;
+		}
+	}
+	.inBase{
+		z-index:2;
+		position:relative;
+		padding-top:4em;
+		@include s.media(m){
+			padding-top:0;
+		}
+	}
+	&__title{
+		display:block;
+		position:relative;
+		font-family: 'Noto Sans JP', sans-serif;
+		font-weight: 700;
+		font-size:2em;
+		letter-spacing:0.15em;
+		text-align:center;
+		padding-top:1.5em;
+		@include s.media(m){
+			font-size:3em;
+		}
+		@include s.media(xl){
+			font-size:4em;
+		}
+		&::before{
+			content:"\f04b";
+            font-family: 'icomoon';
+			font-size:0.6em;
+			width:2em;
+			height:2em;
+			display:block;
+			letter-spacing:0;
+			text-align:center;
+			background:s.$colorType02;
+			border-radius:0.3em;
+			padding:0.5em 0;
+			position:absolute;
+			top:0;
+			left:50%;
+			margin-left:-1em;
+			color:s.$colorType03;
+		}
+	}
+	&__movie{
+		display:block;
+		padding:0 1em;
+		@include s.media(m){
+			background:#FFF;
+			padding:3em;
+			border-radius:3em;
+			border:#ffac9c solid 6px;
+		}
+		@include s.media(xl){
+			padding:4em;
+		}
+	}
+}
+
+#wrapper .homeInterviewBox{
+	display:block;
+	position:relative;
+	margin-bottom:7em;
+	@include s.media(m){
+		margin-bottom:10em;
+	}
+	&::before{
+		content:"";
+		width:100%;
+		height:20em;
+		display:block;
+		background:s.$colorType03;
+		position:absolute;
+		bottom:-10em;
+		left:0;
+		z-index:0;
+	}
+	&::after{
+		content:"";
+		width:100%;
+		height:20em;
+		display:block;
+		background:#FFF;
+		position:absolute;
+		bottom:-4em;
+		left:0;
+		border-radius: 0 0 0 5em;
+		z-index:1;
+		@include s.media(m){
+			position:absolute;
+			bottom:-5em;
+			left:0;
+			border-radius: 0 0 0 10em;
+		}
+	}
+	.inBase{
+		z-index:2;
+		position:relative;
+		@include s.media(m){
+			border-radius: 4em 0 0 0;
+		}
+		&.--typehomePointBox{
+			width: 112%;
+			margin-left:-6%;
+			@include s.media(m){
+				margin-left:auto;
+				width: 768px;
+			}
+			@include s.media(xl){
+				width: 1200px;
+			}
+		}
+	}
+	&__content{
+		display:block;
+		overflow:hidden;
+		@include s.media(m){
+			border-radius: 4em 0 0 0;
+		}
+	}
+	&__inner{
+		a{
+			figure::before{
+				@include s.media(m){
+					content: '';
+					position: absolute;
+					top: 0;
+					left: 0;
+					z-index: 1;
+					background:rgba(s.$colorType02,.5);
+					width: 100%;
+					height: 100%;
+					transition: transform .6s cubic-bezier(0.8, 0, 0.2, 1) 0s;
+					transform: scale(0, 1);
+					transform-origin: right top;
+				}
+			}
+			&:hover{
+				color:s.$colorType02;
+				figure::before{
+					@include s.media(m){
+						transform-origin:left top;
+						transform:scale(1, 1);
+					}
+				}
+			}
+		}
+		figure{
+			position:relative;
+			img{
+				width:100%;
+			}
+			figcaption{
+				width:2em;
+				height:2em;
+				background:s.$colorType02;
+				color:#FFF;
+				font-size:2em;
+				font-weight:bold;
+				text-align:center;
+				padding-top:0.1em;
+				display:block;
+				border-radius: 0 0 0 1em;
+				position:absolute;
+				top:0;
+				right:0;
+				z-index: 2;
+				@include s.media(m){
+					font-size:2.5em;
+				}
+			}
+		}
+		dl{
+			display:block;
+			position:relative;
+			z-index: 2;
+			dt{
+				width:70%;
+				display:block;
+				color:s.$colorType02;
+				background:#FFF;
+				font-size:2em;
+				font-weight:bold;
+				padding:0.5em 0.7em 0;
+				border-radius: 0 1em 0 0;
+				margin-top:-1.5em;
+				@include s.media(m){
+					padding:0.5em 0.7em;
+				}
+			}
+			dd{
+				padding:0 1.4em;
+			}
+		}
+	}
+}
+
+#wrapper .homeMessagBox{
+	background:s.$colorType03;
+	display:block;
+	position:relative;
+	padding-bottom:3em;
+	@include s.media(m){
+		margin-top:-7em;
+		padding-bottom:6em;
+	}
+	@include s.media(xl){
+		margin-top:-8em;
+	}
+	.inBase{
+		z-index:2;
+		position:relative;
+	}
+	&__content{
+		display:block;
+		overflow:hidden;
+		@include s.media(m){
+		}
+		p{
+			line-height:2.4;
+		}
+	}
+	&__image{
+		display:block;
+		@include s.media(m){
+			padding-left:2em;
+		}
+		img{
+			width:100%;
+			border-radius: 0 0 0 4em;
+		}
+	}
+}
+
+
+#wrapper .homeRecruitmentBox{
+	display:block;
+	position:relative;
+	padding-top:3em;
+	@include s.media(m){
+		padding-top:6em;
+	}
+	&::before{
+		content:"";
+		width:100%;
+		height:10em;
+		display:block;
+		background:s.$colorType03;
+		position:absolute;
+		top:0;
+		left:0;
+		z-index:0;
+		@include s.media(m){
+			height:10em;
+		}
+	}
+	&::after{
+		content:"";
+		width:100%;
+		height:10em;
+		display:block;
+		background:#FFF;
+		position:absolute;
+		top:0;
+		left:0;
+		border-radius: 0 5em 0 0;
+		z-index:1;
+		@include s.media(m){
+			height:10em;
+			border-radius: 0 10em 0 0;
+			position:absolute;
+			top:0;
+			left:0;
+		}
+	}
+	.inBase{
+		z-index:2;
+		position:relative;
+	}
+	&__title{
+		display:block;
+		position:relative;
+		font-family: 'Noto Sans JP', sans-serif;
+		font-weight: 700;
+		font-size:2em;
+		letter-spacing:0.15em;
+		text-align:center;
+		padding-top:1.5em;
+		@include s.media(m){
+			font-size:3em;
+			margin-bottom:s.$spaceSize*3;
+		}
+		@include s.media(xl){
+			font-size:4em;
+		}
+		&::before{
+			content:" ";
+			width:1.2em;
+			height:1.2em;
+			display:block;
+			text-align:center;
+			background:url(../img/home/iconRecruitment.png) no-repeat center top;
+			background-size:100% auto;
+			position:absolute;
+			top:0;
+			left:50%;
+			margin-left:-0.6em;
+		}
+	}
+	&__inner{
+		@include s.media(m){
+			width:90%;
+			margin-left:auto;
+			margin-right:auto;
+		}
+		@include s.media(xl){
+			width:80%;
+		}
+		p{
+			line-height:2.4;
+		}
+	}
+	&__image{
+		@include s.media(m){
+			padding-right:2em;
+		}
+		img{
+			width:100%;
+			border-radius: 0 0 0 4em;
+		}
+		&.--hiddenSp{
+			display:none;
+			@include s.media(m){
+				display:block;
+			}
+		}
+		&.--hiddenPc{
+			display:block;
+			margin-bottom:s.$spaceSize*1.5;
+			@include s.media(m){
+				display:none;
+			}
+		}
+	}
+	&__content{
+		disdplay:block;
+		position:relative;
+		&::before{
+			content:"";
+			width:6em;
+			height:6em;
+			display:block;
+			background:url(../img/common/figure02.svg) no-repeat center top;
+			background-size:100% auto;
+			position:absolute;
+			bottom:5em;
+			left:-1em;
+			z-index:-1;
+			@include s.media(m){
+				display:block;
+				width:9em;
+				height:8em;
+				position:absolute;
+				left:auto;
+				bottom:-6em;
+				right:-6em;
+				z-index:1;
+			}
+			@include s.media(xl){
+				width:10em;
+				height:9em;
+				position:absolute;
+				bottom:-6em;
+				right:-8em;
+			}
+		}
+	}
+	&__flowTitle{
+		font-family: 'Noto Sans JP', sans-serif;
+		font-weight: 700;
+		font-size:1.3em;
+		color:s.$colorType02;
+		letter-spacing:0.1em;
+		line-height:1.9;
+		text-align:center;
+		@include s.media(m){
+			margin-top:2em;
+			margin-left:2em;
+			text-align:left;
+		}
+		@include s.media(xl){
+			font-size:2em;
+		}
+	}
+	&__flowBox{
+		display:block;
+		position:relative;
+		&::before{
+			content:"";
+			width:6em;
+			height:6em;
+			display:block;
+			background:url(../img/common/figure02.svg) no-repeat center top;
+			background-size:100% auto;
+			position:absolute;
+			top:-3em;
+			right:0;
+			z-index:-1;
+			@include s.media(m){
+				display:block;
+				width:9em;
+				height:8em;
+				position:absolute;
+				top:auto;
+				bottom:3em;
+				left:-4em;
+				z-index:1;
+			}
+			@include s.media(xl){
+				width:10em;
+				height:9em;
+				position:absolute;
+				bottom:2em;
+				left:-7em;
+			}
+		}
+	}
+	&__flow{
+		display:block;
+		padding:0 0.5em;
+		@include s.media(m){
+			padding:0 1em;
+		}
+		figure{
+			position:relative;
+			width:100%;
+			background:#FFF;
+			border:#ffad9e solid 3px;
+			border-radius:50%;
+			padding:1em;
+			margin-bottom:s.$spaceSize*0.5;
+			@include s.media(m){
+				padding:1.6em;
+			}
+			&::before{
+				content:"\f04b";
+                font-family: 'icomoon';
+                color:s.$colorType02;
+				position:absolute;
+				top:50%;
+				right:-1.7em;
+				margin-top:-0.5em;
+				@include s.media(m){
+					position:absolute;
+					top:50%;
+					right:-2em;
+				}
+			}
+			img{
+				width:100%;
+			}
+			figcaption{
+				width:2em;
+				height:2em;
+				background:s.$colorType02;
+				color:#FFF;
+				font-size:1.2em;
+				font-weight:bold;
+				text-align:center;
+				padding-top:0.1em;
+				display:block;
+				border-radius: 0 0 0 1em;
+				position:absolute;
+				top:0;
+				right:0;
+				@include s.media(m){
+					font-size:1.6em;
+				}
+			}
+		}
+		&.--lastFlow {
+			figure::before{
+				content:none;
+			}
+		}
+		dt{
+			font-size:1.2em;
+			font-weight:bold;
+			color:s.$colorType02;
+			text-align:center;
+			@include s.media(m){
+				text-align:left;
+			}
+		}
+		dd{
+			display:none;
+			@include s.media(m){
+				display:block;
+			}
+		}
+	}
+	&__page{
+		margin-bottom:3em;
+		position:relative;
+		@include s.media(m){
+			margin-bottom:6em;
+		}
+		&::before{
+			content:"";
+			width:5em;
+			height:5em;
+			display:none;
+			background:url(../img/common/figure02.svg) no-repeat center top;
+			background-size:100% auto;
+			position:absolute;
+			bottom:2em;
+			right:0;
+			@include s.media(m){
+				display:block;
+				width:9em;
+				height:8em;
+				position:absolute;
+				bottom:-5em;
+				right:5em;
+			}
+			@include s.media(xl){
+				width:10em;
+				height:9em;
+				position:absolute;
+				bottom:-5em;
+				right:5em;
+			}
+		}
+	}
+	&__pageButton{
+		display:block;
+		@include s.media(m){
+			padding:0 0.6em;
+		}
+		a{
+			position:relative;
+			display:block;
+			overflow:hidden;
+			border-radius:1em;
+			height:8em;
+			@include s.media(m){
+				border-radius:2em;
+				height:auto;
+			}
+			figure{
+				img{
+					width:100%;
+				}
+			}
+			dl{
+				width:100%;
+				display:block;
+				position:absolute;
+				top:0;
+				left:0;
+				text-align:center;
+				color:#FFF;
+				padding-top:1em;
+				@include s.media(m){
+					padding-top:3em;
+				}
+				dt{
+					position:absolute;
+					top:1.5em;
+					left:1em;
+					@include s.media(m){
+						position:static;
+					}
+					img{
+						width:5.5em;
+						@include s.media(m){
+							width:6em;
+						}
+					}
+					margin-bottom:0.5em;
+				}
+				dd{
+					font-size:1.5em;
+					font-weight:bold;
+					padding-top:1.3em;
+					@include s.media(m){
+						font-size:1.6em;
+						letter-spacing:0.1em;
+						padding-top:0;
+					}
+				}
+			}
+		}
+		&.--typeTwoLines{
+			dl dd{
+				padding-top:0.3em;
+				@include s.media(m){
+					padding-top:0;
+				}
+			}
+			figure img{
+				margin-top:-5em;
+				@include s.media(m){
+					margin-top:0;
+				}
+			}
+		}
+	}
+}
+
+
+#wrapper .homeCompanyBox{
+	display:block;
+	position:relative;
+	margin-bottom:4em;
+	@include s.media(m){
+		margin-bottom:8em;
+	}
+	&::before{
+		content:"";
+		width:100%;
+		height:90%;
+		background:s.$colorType03;
+		position:absolute;
+		top:-2em;
+		left:0;
+		border-radius: 0 0 5em 0;
+		@include s.media(m){
+			width:97%;
+			position:absolute;
+			top:2em;
+			left:0;
+			border-radius: 0 0 10em 0;
+		}
+		@include s.media(xl){
+			width:95%;
+			position:absolute;
+			top:3em;
+			left:0;
+		}
+	}
+	.inBase{
+		z-index:2;
+		position:relative;
+		@include s.media(m){
+			padding-bottom:3em;
+		}
+	}
+	&__image{
+		display:block;
+		@include s.media(m){
+			padding-right:2em;
+		}
+		img{
+			width:100%;
+			border-radius: 0 0 0 4em;
+		}
+	}
+	&__map{
+		display:block;
+		border-radius: 0 0 5em 0;
+		overflow:hidden;
+		z-index:2;
+		position:relative;
+		@include s.media(m){
+			width:97%;
+			border-radius: 0 0 10em 0;
+		}
+		@include s.media(xl){
+			width:95%;
+		}
+		iframe{
+			height:15em;
+			@include s.media(m){
+				height:450px;
+			}
+		}
+	}
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

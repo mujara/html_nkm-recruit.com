@@ -1,0 +1,119 @@
+@use "../_setting" as s;
+
+#header {
+	position: relative;
+    transition: .3s;
+	@include s.media(m){
+		padding-top:3em;
+	}
+}
+
+#wrapper .header {
+	@include s.media(m){
+		justify-content:center;
+		align-items:center;
+	}
+	&__inner{
+		padding-top:1em;
+		@include s.media(m){
+			width:100%;
+			display:flex;
+		}
+		@include s.media(xxl){
+			width:120%;
+			margin-left:-10%;
+		}
+
+	}
+    &__siteTitleBox {
+		display:block;
+		@include s.media(m){
+			width:30%;
+			display:block;
+			margin-top:-0.7em;
+		}
+		@include s.media(xxl){
+			width:35%;
+		}
+		dl{
+			display:block;
+			@include s.media(m){
+				width:100%;
+				display:flex;
+				justify-content:center;
+				align-items:center;
+			}
+			dt{
+				width:60%;
+				@include s.media(m){
+					width:50%;
+				}
+			}
+			dd{
+				@include s.media(m){
+					width:50%;
+				}
+			}
+		}
+	}
+	&__siteTitle01{
+		small{
+			display:block;
+			font-size:0.7em;
+			padding-bottom:0.25em;
+			@include s.media(m){
+				padding-bottom:0;
+			}
+		}
+		img{
+			width:100%;
+		}
+		a:hover{
+			color:#000;
+		}
+	}
+	&__siteTitle02{
+		font-weight:bold;
+		padding-bottom:0.5em;
+		@include s.media(m){
+			font-size:0.8em;
+			padding-left:1em;
+			padding-top:0;
+			padding-bottom:0;
+		}
+		@include s.media(xl){
+			font-size:0.9em;
+			padding-left:2em;
+		}
+		@include s.media(xxl){
+			font-size:1em;
+		}
+		a:hover{
+			color:#000;
+		}
+	}
+    &__tel {
+		@include s.media(m){
+			font-size:1.8em;
+			vertical-align:middle;
+			color:#68b0b5;
+			margin:0 0.5em 0 0;
+		}
+	}
+    &__telSent {
+		@include s.media(m){
+			background:#ff3414;
+			color:#FFF;
+			line-height:2.1em;
+			vertical-align:middle;
+			padding:0.2em 1em;
+		  	border-radius: 0.2em 0.2em 0.2em 0.2em;
+		}
+	}
+}
+
+#home .header__siteTitleBox dt a:after{
+	@include s.media(m){
+		content: none;
+	}
+}

@@ -1,0 +1,99 @@
+@use "../_setting" as s;
+
+#footer {
+	background:s.$colorType02;
+	clear: both;
+	padding-top:3em;
+	@include s.media(m){
+		padding-top:0;
+	}
+}
+
+
+.footer {
+	&__siteTitle{
+		padding:0 20% 1em 20%;
+		color:#FFF;
+		@include s.media(m){
+			padding:0;
+			margin-top:8em;
+		}
+		small{
+			color:#FFF;
+		}
+		a{
+			color:#FFF;
+			display:block;
+			@include s.media(m){
+				width:16em;
+			}
+			small{
+				display:block;
+			}
+		}
+	}
+	&__siteTitle img{
+		width:100%;
+	}
+	&__inner{
+		display:block;
+		@include s.media(m){
+			min-height:29em;
+			padding:3em 1em 2em;
+			border-right:#fe4040 solid 1px;
+		}
+	}
+}
+
+
+#wrapper .footer__navi {
+	width:100%;
+	//border-bottom:#fe4040 dotted 1px;
+	display:block;
+		@include s.media(m){
+				border-bottom:none;
+				padding:0 0 0 1em;
+		}
+	li{
+		padding:5px 0;
+		//border-top:#fe4040 dotted 1px;
+		@include s.media(m){
+			padding:0;
+			margin-bottom:1.7em;
+			border:none;
+		}
+		&.--step01{
+			+li.--step02{
+				@include s.media(m){
+					margin-top:-1.5em;
+				}
+			}
+		}
+		&.--step02{
+			display:block;
+			@include s.media(m){
+				margin-top:-0.5em;
+				margin-bottom:0.3em;
+			}
+			a{
+				font-size:0.85em;
+			}
+			&+li.--step01{
+				@include s.media(m){
+					margin-top:1.5em;
+				}
+			}
+		}
+		a{
+			font-size:0.9em;
+			color:#FFF;
+			text-decoration:none;
+			@include s.media(m){
+				font-size:1em;
+			}
+			&:hover {
+				color: #000;
+			}
+		}
+	}
+}
